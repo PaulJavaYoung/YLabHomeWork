@@ -21,16 +21,17 @@ public class GuessTask {
                         break;
                     } else {
                         maxAttempts--;
+                        String answer = "У вас " + maxAttempts + " попыток.";
                         if (myAttempt > hiddenNumber && maxAttempts > 0){
                             System.out.println("Мое число меньше! " +
-                                               "У вас " + maxAttempts + " попыток.");
+                                               answer);
                         } else if (myAttempt < hiddenNumber && maxAttempts > 0){
                             System.out.println("Мое число больше! " +
-                                               "У вас " + maxAttempts + " попыток.");
+                                               answer);
                         } else {
                             String lastAttempt = (myAttempt > hiddenNumber) ?
-                                    "Мое число меньше! У вас " + maxAttempts + " попыток.\nВы не угадали." :
-                                    "Мое число больше! У вас " + maxAttempts + " попыток.\nВы не угадали.";
+                                    "Мое число меньше! " + answer + "\nВы не угадали." :
+                                    "Мое число больше! " + answer + "\nВы не угадали.";
                             System.out.println(lastAttempt);
                         }
                     }
