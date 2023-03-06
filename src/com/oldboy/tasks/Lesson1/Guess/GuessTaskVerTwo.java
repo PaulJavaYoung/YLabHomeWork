@@ -10,8 +10,6 @@ public class GuessTaskVerTwo {
 
     public static void main(String[] args) {
 
-        System.out.println(hiddenNumber);
-
         System.out.printf("Я загадал число от 1 до 99. " +
                           "У вас %d попыток угадать.\n", maxAttempts);
 
