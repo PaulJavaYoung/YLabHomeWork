@@ -13,4 +13,7 @@
 - [Guess](https://github.com/PaulJavaYoung/YLabHomeWork/blob/master/src/com/oldboy/tasks/Lesson1/Guess/GuessTask.java): Игра угадайка.
 
 Ни в одной из задач не проводились проверки на крайние случаи, как предложил преподаватель, т.е. предполагается, что пользователь крайне дисциплинирован и не делает ошибок при вводе данных.
+
+Автор: Павел Ермолаев
+E-mail: paultrader@mail.ru
      
