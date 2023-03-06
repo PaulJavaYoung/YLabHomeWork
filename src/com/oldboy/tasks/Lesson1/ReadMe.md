@@ -10,7 +10,8 @@
     - [PellWithArray](https://github.com/PaulJavaYoung/YLabHomeWork/blob/master/src/com/oldboy/tasks/Lesson1/PellTask/PellWithArray/PellWithArray.java) - решение задачи с предварительным заполнением массива расчетными данными и последующим их извлечением по требованию.
 
 - [MultTable](https://github.com/PaulJavaYoung/YLabHomeWork/blob/master/src/com/oldboy/tasks/Lesson1/MultTableTask/MultTable.java): Таблица умножения.
-- [Guess](https://github.com/PaulJavaYoung/YLabHomeWork/blob/master/src/com/oldboy/tasks/Lesson1/Guess/GuessTask.java): Игра угадайка.
+- [Guess](https://github.com/PaulJavaYoung/YLabHomeWork/blob/master/src/com/oldboy/tasks/Lesson1/Guess/GuessTask.java): Игра угадайка (не оптимизированная).
+- [GuessVerTwo](https://github.com/PaulJavaYoung/YLabHomeWork/blob/master/src/com/oldboy/tasks/Lesson1/Guess/GuessTaskVerTwo.java): Более структурированная версия игры "Угадай число"
 
 Ни в одной из задач не проводились проверки на крайние случаи, как предложил преподаватель, т.е. предполагается, что пользователь крайне дисциплинирован и не делает ошибок при вводе данных.
 
