@@ -3,7 +3,7 @@ package com.oldboy.tasks.Lesson1.PellTask.PellWithArray;
 import java.util.Scanner;
 
 public class PellWithArray {
-    private static final double[] pellNumber = new double[31];
+    private static final int[] pellNumber = new int[31];
 
     static {
         pellNumber[0] = 0;
@@ -15,7 +15,7 @@ public class PellWithArray {
 
     public static void main(String[] args) {
         int receivedId = userConsoleUI();
-        System.out.printf("Вывод: \n%.0f",pellNumber[receivedId]);
+        System.out.printf("Вывод: \n%d",pellNumber[receivedId]);
     }
 
     private static int userConsoleUI(){
