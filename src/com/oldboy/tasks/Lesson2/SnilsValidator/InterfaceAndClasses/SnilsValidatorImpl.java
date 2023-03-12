@@ -10,10 +10,10 @@ public class SnilsValidatorImpl implements SnilsValidator{
     public boolean validate(String snils) {
         boolean rightSnils = false;
         /*
-        Полученные данные должны соответствовать
-        жестким требованиям, одиннадцать цифр подряд
-        без пробелов и других разделяющих символов,
-        о чем упоминается в методе main.
+        Полученные данные должны соответствовать жестким
+        требованиям, одиннадцать цифр подряд без пробелов
+        и других разделяющих символов, о чем упоминается
+        в методе main класса SnilsValidTester.
         */
         String regexCorrectData = "\\d{11}";
         Pattern dataIsCorrect = Pattern.compile(regexCorrectData);
