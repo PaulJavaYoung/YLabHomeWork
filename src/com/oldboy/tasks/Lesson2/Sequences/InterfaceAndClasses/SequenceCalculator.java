@@ -5,7 +5,7 @@ public class SequenceCalculator implements Sequences {
     public void seqA(int n) {
         if (n > 1) {
             System.out.print("A. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countAn = i * 2L;
                 printSequenceToScreen(countAn, i, n);
             }
@@ -18,7 +18,7 @@ public class SequenceCalculator implements Sequences {
     public void seqB(int n) {
         if (n > 1) {
             System.out.print("B. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countBn = (i * 2L) - 1;
                 printSequenceToScreen(countBn, i, n);
             }
@@ -31,7 +31,7 @@ public class SequenceCalculator implements Sequences {
     public void seqC(int n) {
         if (n > 1) {
             System.out.print("C. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countCn = (long) i * i;
                 printSequenceToScreen(countCn, i, n);
             }
@@ -44,7 +44,7 @@ public class SequenceCalculator implements Sequences {
     public void seqD(int n) {
         if (n > 1) {
             System.out.print("D. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countDn = (long) i * i * i;
                 printSequenceToScreen(countDn, i, n);
             }
@@ -57,7 +57,7 @@ public class SequenceCalculator implements Sequences {
     public void seqE(int n) {
         if (n > 1) {
             System.out.print("E. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countEn = (i % 2 == 0) ? -1L : 1L;
                 printSequenceToScreen(countEn, i, n);
             }
@@ -70,7 +70,7 @@ public class SequenceCalculator implements Sequences {
     public void seqF(int n) {
         if (n > 1) {
             System.out.print("F. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countFn = (i % 2 == 0) ? (long) i * -1 : (long) i;
                 printSequenceToScreen(countFn, i, n);
             }
@@ -83,7 +83,7 @@ public class SequenceCalculator implements Sequences {
     public void seqG(int n) {
         if (n > 1) {
             System.out.print("G. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countGn = (i % 2 == 0) ? ((long) i * i) * -1 : (long) i * i;
                 printSequenceToScreen(countGn, i, n);
             }
@@ -96,7 +96,7 @@ public class SequenceCalculator implements Sequences {
     public void seqH(int n) {
         if (n > 1) {
             System.out.print("H. ");
-            for (var i = 1; i <= n; i++) {
+            for (int i = 1; i <= n; i++) {
                 long countHn = (i % 2 == 0) ? 0 : (i - 1) / 2 + 1;
                 printSequenceToScreen(countHn, i, n);
             }
@@ -110,10 +110,10 @@ public class SequenceCalculator implements Sequences {
         if (n > 1 && n < 20) {
             System.out.print("I. ");
             long perevElement = 1L;
-            for (var i = 1; i <= n; i++) {
-                var curElement = perevElement * i;
+            for (int i = 1; i <= n; i++) {
+                long curElement = perevElement * i;
                 perevElement = curElement;
-                var countIn = curElement;
+                long countIn = curElement;
                 printSequenceToScreen(countIn, i, n);
             }
         } else {
@@ -126,10 +126,10 @@ public class SequenceCalculator implements Sequences {
     public void seqJ(int n) {
         if (n > 1) {
             System.out.print("J. ");
-            var stepBuckElement = 1L;
-            var twoStepBuckElement = 1L;
-            var curElement = 1L;
-            for (var i = 1; i <= n; i++) {
+            long stepBuckElement = 1L;
+            long twoStepBuckElement = 1L;
+            long curElement = 1L;
+            for (int i = 1; i <= n; i++) {
                 if (i > 2) {
                     curElement = stepBuckElement + twoStepBuckElement;
                     twoStepBuckElement = stepBuckElement;
