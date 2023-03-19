@@ -1,4 +1,4 @@
-Домашнее задание по Уроку 2 ( Курс 'Интенсив по Java' ):
+Домашнее задание по Уроку 3 ( Курс 'Интенсив по Java' ):
 - [Transliterator](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/Transliterator): Решена двумя способами (одновременный тест в метода main):
 
     - [TransliteratorImpl](https://github.com/PaulJavaYoung/YLabHomeWork/blob/Lesson3/src/com/oldboy/tasks/Lesson3/Transliterator/InterfaceAndClasses/TransliteratorImpl.java) - решение согласно т.з.
