@@ -22,9 +22,9 @@ public class TransliteratorDemoApp {
         System.out.println(myTrans.transliterate(strForTranslit_2));
 
         String test_one = "ХОЧЕШЬ БУЛОЧКУ? My little pussy МУРКА!";
-        System.out.println(simpleTrans.transliterate(test_one));
+        System.out.println(myTrans.transliterate(test_one));
 
         String test_two = "WHAT DO YOU ХОЧЕШЬ? ХОЧЕШ СЛАДКИХ ORANGES?!";
-        System.out.println(simpleTrans.transliterate(test_two));
+        System.out.println(myTrans.transliterate(test_two));
     }
 }
