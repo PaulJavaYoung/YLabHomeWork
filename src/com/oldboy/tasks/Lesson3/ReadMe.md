@@ -6,11 +6,13 @@
     - [InterfaceAndClasses](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/Transliterator/InterfaceAndClasses) - папка содержит рабочие классы и интерфейсы приложения.
     - [Dictionary](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/Transliterator/Dictionary) - папка содержит два вида словарей транслита (старый и новый).
 
-- [DatedMap](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap):
+- [DatedMap](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap): Реализована двумя способами, очень простой (читерский) с использованием готовых коллекций, реализован функционал привязки к дате и самописная коллекция с той же функциональностью.
      
-    - [DatedMapDemoApp](https://github.com/PaulJavaYoung/YLabHomeWork/blob/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap/DatedMapDemoApp.java) - тестовый класс содержит main метод, демонстрирует работу.
+    - [DatedMapDemoApp](https://github.com/PaulJavaYoung/YLabHomeWork/blob/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap/DatedMapDemoApp.java) - тестовый класс для простой (читерской) версии реализации DatedMap содержит main метод, демонстрирует работу.
     - [InterfaceAndClasses](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap/InterfaceAndClasses) - папка содержит рабочие классы и интерфейсы приложения.
-
+    - [DateMapHard](https://github.com/PaulJavaYoung/YLabHomeWork/blob/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap/InterfaceAndClasses/DateMapHard.java) - реализация самописной коллекции с Date функционалом.
+    - [DMapHardDemoApp](https://github.com/PaulJavaYoung/YLabHomeWork/blob/Lesson3/src/com/oldboy/tasks/Lesson3/DatedMap/DMapHardDemoApp.java) - демонстратор работы самописной коллекции.
+  
 - [OrgStructure](https://github.com/PaulJavaYoung/YLabHomeWork/tree/Lesson3/src/com/oldboy/tasks/Lesson3/OrgStructure):
   
   - [OrgStructureDemoApp](https://github.com/PaulJavaYoung/YLabHomeWork/blob/Lesson3/src/com/oldboy/tasks/Lesson3/OrgStructure/OrgStructureDemoApp.java) - тестовый класс содержит main метод.
