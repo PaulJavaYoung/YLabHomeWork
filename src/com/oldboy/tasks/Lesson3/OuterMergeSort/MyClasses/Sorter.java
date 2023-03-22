@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Sorter {
     // Максимальное количество строк во временных файлах
-    private static final int MAX_ROW_IN_FILE = 10000;
+    private static final int MAX_ROW_IN_FILE = 28300;
     private static final File dirForFile =
             new File("src\\com\\oldboy\\tasks\\Lesson3\\OuterMergeSort\\FileForSorted\\");
     private static final File outputFile =
@@ -14,8 +14,10 @@ public class Sorter {
     public File sortFile(File inputFile) throws IOException {
         List<File> tempFiles = new ArrayList<>();
         long fileSize = inputFile.length();
-        int chunkSize = MAX_ROW_IN_FILE * 23;
-        int chunks = (int) Math.ceil((double) fileSize / chunkSize);
+        long chunkSize = MAX_ROW_IN_FILE * 30;
+        long countOfChunk = fileSize / chunkSize;
+        int chunks = (countOfChunk < 1 && (fileSize % chunkSize) >= 0) ?
+                     1 : (int) (countOfChunk + 1);
 
         try (Scanner scanner = new Scanner(new FileInputStream(inputFile))) {
             for (int i = 0; i < chunks; i++) {
@@ -38,7 +40,6 @@ public class Sorter {
             sortTempFile(tempFile);
         }
 
-
         Comparator<Long> comparator = new Comparator<>() {
             public int compare(Long r1, Long r2) {
                 return r1.compareTo(r2);
@@ -50,7 +51,7 @@ public class Sorter {
         return outputFile;
     }
 
-    private static void sortTempFile(File tempFile) throws IOException {
+    private static void sortTempFile(File tempFile){
 
         List<Long> listSort = new ArrayList<>();
 
