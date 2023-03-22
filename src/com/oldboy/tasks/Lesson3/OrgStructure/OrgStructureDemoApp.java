@@ -7,10 +7,10 @@ import java.io.IOException;
 import java.util.Map;
 
 public class OrgStructureDemoApp {
-    private static String file_for_read = "src\\com\\oldboy\\tasks\\Lesson3\\OrgStructure\\Files\\BaseOrgStructure.csv";
-    private static File myFile = new File(file_for_read);
+    private static final String file_for_read = "src\\com\\oldboy\\tasks\\Lesson3\\OrgStructure\\Files\\BaseOrgStructure.csv";
+    private static final File myFile = new File(file_for_read);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         OrgStructureParser parser = new OrgStructureParserImpl();
         System.out.println("\n--------------------- Генеральный директор ---------------------");
