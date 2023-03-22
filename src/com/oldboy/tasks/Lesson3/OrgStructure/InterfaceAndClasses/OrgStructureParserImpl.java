@@ -13,10 +13,21 @@ import java.util.regex.Pattern;
 
 public class OrgStructureParserImpl implements OrgStructureParser{
 
-    private Map<Long, Employee> companyStructure = new HashMap<>();
+    private static Map<Long, Employee> companyStructure = new HashMap<>();
 
     @Override
     public Employee parseStructure(File csvFile){
+
+        companyStructureLoad(csvFile);
+        return getBigBossReturner();
+
+    }
+
+    public Map<Long, Employee> getCompanyStructure() {
+        return companyStructure;
+    }
+
+    private static void companyStructureLoad(File csvFile){
         String regexCorrectFile = "id.+";
         Pattern firstStr = Pattern.compile(regexCorrectFile);
 
@@ -44,7 +55,9 @@ public class OrgStructureParserImpl implements OrgStructureParser{
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    private static Employee getBigBossReturner(){
         Set set = companyStructure.entrySet();
         Iterator i = set.iterator();
 
@@ -63,9 +76,5 @@ public class OrgStructureParserImpl implements OrgStructureParser{
             }
         }
         return findBoss;
-    }
-
-    public Map<Long, Employee> getCompanyStructure() {
-        return companyStructure;
     }
 }
