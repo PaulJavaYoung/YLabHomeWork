@@ -10,7 +10,7 @@ public class OrgStructureDemoApp {
     private static final String file_for_read = "src\\com\\oldboy\\tasks\\Lesson3\\OrgStructure\\Files\\BaseOrgStructure.csv";
     private static final File myFile = new File(file_for_read);
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
         OrgStructureParser parser = new OrgStructureParserImpl();
         System.out.println("\n--------------------- Генеральный директор ---------------------");
@@ -26,5 +26,6 @@ public class OrgStructureDemoApp {
             System.out.println(prn + " в подчинении человек: " +
                     prn.getValue().getSubordinate().size());
         }
+
     }
 }

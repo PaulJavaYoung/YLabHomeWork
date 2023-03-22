@@ -39,11 +39,6 @@ public class OrgStructureParserImpl implements OrgStructureParser{
                     employee.setPosition(position);
 
                     companyStructure.put(id,employee);
-
-                    if(boss_id != null){
-                        employee.setBoss(companyStructure.get(boss_id));
-                        companyStructure.get(boss_id).getSubordinate().add(employee);
-                    }
                 }
             }
         } catch (IOException e) {
@@ -57,9 +52,14 @@ public class OrgStructureParserImpl implements OrgStructureParser{
 
         while(i.hasNext()) {
             Map.Entry myStructCompany = (Map.Entry)i.next();
-            findBoss = (Employee) myStructCompany.getValue();
-            if(findBoss.getBossId() == null){
-                break;
+            Employee justAnEmployee = (Employee) myStructCompany.getValue();
+            if(justAnEmployee.getBossId() != null){
+                justAnEmployee.setBoss(companyStructure.get(justAnEmployee.getBossId()));
+                companyStructure.get(justAnEmployee.getBossId()).getSubordinate().add(justAnEmployee);
+            }
+
+            if(justAnEmployee.getBossId() == null){
+                findBoss = (Employee) myStructCompany.getValue();
             }
         }
         return findBoss;
