@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -14,7 +16,7 @@ public class OrgStructureParserImpl implements OrgStructureParser{
     private Map<Long, Employee> companyStructure = new HashMap<>();
 
     @Override
-    public Employee parseStructure(File csvFile) throws IOException {
+    public Employee parseStructure(File csvFile){
         String regexCorrectFile = "id.+";
         Pattern firstStr = Pattern.compile(regexCorrectFile);
 
@@ -47,7 +49,20 @@ public class OrgStructureParserImpl implements OrgStructureParser{
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        return companyStructure.get(1L);
+
+        Set set = companyStructure.entrySet();
+        Iterator i = set.iterator();
+
+        Employee findBoss = null;
+
+        while(i.hasNext()) {
+            Map.Entry myStructCompany = (Map.Entry)i.next();
+            findBoss = (Employee) myStructCompany.getValue();
+            if(findBoss.getBossId() == null){
+                break;
+            }
+        }
+        return findBoss;
     }
 
     public Map<Long, Employee> getCompanyStructure() {
