@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Sorter {
     // Максимальное количество строк во временных файлах
-    private static final int MAX_ROW_IN_FILE = 62218;
+    private static final int MAX_ROW_IN_FILE = 12145;
     private static List<File> tempFilesList;
     private static final File dirForFile =
             new File("src\\com\\oldboy\\tasks\\Lesson3\\OuterMergeSort\\FileForSorted\\");
@@ -50,9 +50,7 @@ public class Sorter {
                     while (scanner.hasNextLong()) {
                         pw.println(scanner.nextLong());
                         pw.flush();
-                        if (i == chuCount -1) {
-
-                        } else if ((counter++) >= MAX_ROW_IN_FILE){
+                        if (i != chuCount - 1 && (counter++) >= MAX_ROW_IN_FILE) {
                             break;
                         }
                     }
