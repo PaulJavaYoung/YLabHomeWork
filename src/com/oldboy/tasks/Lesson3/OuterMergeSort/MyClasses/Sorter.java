@@ -16,7 +16,7 @@ public class Sorter {
         long fileSize = inputFile.length();
         long chunkSize = MAX_ROW_IN_FILE * 30;
         long countOfChunk = fileSize / chunkSize;
-        int chunks = (countOfChunk < 1 && (fileSize % chunkSize) >= 0) ?
+        int chunks = (countOfChunk < 1 && (fileSize % chunkSize) > 0) ?
                      1 : (int) (countOfChunk + 1);
 
         try (Scanner scanner = new Scanner(new FileInputStream(inputFile))) {
