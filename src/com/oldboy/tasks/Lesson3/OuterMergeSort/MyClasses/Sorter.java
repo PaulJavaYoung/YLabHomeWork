@@ -5,50 +5,62 @@ import java.util.*;
 
 public class Sorter {
     // Максимальное количество строк во временных файлах
-    private static final int MAX_ROW_IN_FILE = 28300;
+    private static final int MAX_ROW_IN_FILE = 62218;
+    private static List<File> tempFilesList;
     private static final File dirForFile =
             new File("src\\com\\oldboy\\tasks\\Lesson3\\OuterMergeSort\\FileForSorted\\");
     private static final File outputFile =
             new File("src\\com\\oldboy\\tasks\\Lesson3\\OuterMergeSort\\SortedFile\\data_sorted.txt");
 
     public File sortFile(File inputFile) throws IOException {
-        List<File> tempFiles = new ArrayList<>();
-        long fileSize = inputFile.length();
-        long chunkSize = MAX_ROW_IN_FILE * 30;
-        long countOfChunk = fileSize / chunkSize;
-        int chunks = (countOfChunk < 1 && (fileSize % chunkSize) > 0) ?
-                     1 : (int) (countOfChunk + 1);
 
-        try (Scanner scanner = new Scanner(new FileInputStream(inputFile))) {
-            for (int i = 0; i < chunks; i++) {
-                File tempFile = File.createTempFile(i + "_sort", "temp", dirForFile);
-                tempFiles.add(tempFile);
-                try (PrintWriter pw = new PrintWriter(tempFile)) {
-                    int counter = 0;
-                    while (scanner.hasNextLong()) {
-                        pw.println(scanner.nextLong());
-                        pw.flush();
-                        if ((counter++) >= MAX_ROW_IN_FILE) {
-                            break;
-                        }
-                    }
-                }
-            }
-        }
+        int tempFileAmount = chunkCalculator(inputFile);
 
-        for (File tempFile : tempFiles) {
+        temporaryFileMaker(inputFile,tempFileAmount);
+
+        for (File tempFile : tempFilesList) {
             sortTempFile(tempFile);
         }
-
         Comparator<Long> comparator = new Comparator<>() {
             public int compare(Long r1, Long r2) {
                 return r1.compareTo(r2);
             }
         };
-
-        mergeSortedFiles(tempFiles, outputFile, comparator);
+        mergeSortedFiles(tempFilesList, comparator);
 
         return outputFile;
+    }
+
+    private static int chunkCalculator(File inputFile){
+        tempFilesList = new ArrayList<>();
+        long fileSize = inputFile.length();
+        long chunkSize = MAX_ROW_IN_FILE * 30;
+        long countOfChunk = fileSize / chunkSize;
+        return (countOfChunk < 1 && (fileSize % chunkSize) > 0) ?
+                1 : (int) (countOfChunk + 1);
+    }
+
+    private static void temporaryFileMaker(File inputFile, int chuCount){
+        try (Scanner scanner = new Scanner(new FileInputStream(inputFile))) {
+            for (int i = 0; i < chuCount; i++) {
+                File tempFile = File.createTempFile(i + "_sort", "temp", dirForFile);
+                tempFilesList.add(tempFile);
+                try (PrintWriter pw = new PrintWriter(tempFile)) {
+                    int counter = 0;
+                    while (scanner.hasNextLong()) {
+                        pw.println(scanner.nextLong());
+                        pw.flush();
+                        if (i == chuCount -1) {
+
+                        } else if ((counter++) >= MAX_ROW_IN_FILE){
+                            break;
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private static void sortTempFile(File tempFile){
@@ -75,7 +87,6 @@ public class Sorter {
     }
 
     private static void mergeSortedFiles(List<File> files,
-                                         File outputfile,
                                          final Comparator<Long> cmp) throws IOException {
         PriorityQueue<TemporaryFileBuffer> pq =
                 new PriorityQueue<>(11, new Comparator<>() {
@@ -87,7 +98,7 @@ public class Sorter {
             TemporaryFileBuffer tempFileBuffStartState = new TemporaryFileBuffer(tempFile);
             pq.add(tempFileBuffStartState);
         }
-        PrintWriter pw = new PrintWriter(outputfile);
+        PrintWriter pw = new PrintWriter(Sorter.outputFile);
         try {
             while (pq.size() > 0) {
                 TemporaryFileBuffer tempFileBuf = pq.poll();
